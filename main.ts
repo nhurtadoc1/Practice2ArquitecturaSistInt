@@ -23,7 +23,7 @@ if (!MONGO_URL) {
 await mongoose.connect(MONGO_URL);
 const app = express();
 app.use(express.json());
-app.get("/addProduct/:name,:stock,:description,:price", addProduct);
+app.post("/addProduct/:name,:stock,:description,:price", addProduct);
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
