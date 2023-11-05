@@ -9,6 +9,7 @@ import deletePerson from "./resolvers/deletePerson.ts";
 */
 
 import addProduct from "./resolvers/addProduct.ts";
+import getProduct from "./resolvers/getProduct.ts";
 
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 const env = await load();
@@ -24,6 +25,7 @@ await mongoose.connect(MONGO_URL);
 const app = express();
 app.use(express.json());
 app.post("/addProduct/:name,:stock,:description,:price", addProduct);
+app.get("/getProduct/:name", getProduct);
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
