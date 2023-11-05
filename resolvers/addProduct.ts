@@ -3,8 +3,7 @@ import ProductModel from "../db/Product.ts";
 
 const addProduct = async (req: Request, res: Response) => {
   try {
-    console.log(req.params);
-    const { name, stock, description, price } = req.body;
+    const { name, stock, description, price } = req.params;
     if (!name || !stock || !description || !price) {
       res.status(400).send("Name, stock, description, and price are required");
       return;
